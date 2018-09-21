@@ -85,7 +85,7 @@
 				</div>
 
 				<button type="submit" class="btn btn-primary" name="register" style="margin: 15px 0 0 15px">Register</button>
-				<button type="button" class="btn btn-primary" name="login" style="margin: 15px 0 0 15px">Back to Login</button>
+				<button type="submit" class="btn btn-primary" name="login" style="margin: 15px 0 0 15px">Back to Login</button>
 			</form>
 		</div>
 	</div>
@@ -94,7 +94,7 @@
 
 		if (isset($_POST['login']))
 		{
-			header("Location: index.php");
+			header("Location:index.php");
 		}
 		
 		if (isset($_POST['register'])) {update();}
@@ -108,7 +108,6 @@
 			$conn = new mysqli('localhost', $user, $pass, $db) or die("Unable to connect to server".$db);
 
 			$sql = "INSERT INTO `profile`(`Uid`, `Name`, `Email`, `Class`, `RollNo`, `Pass`) VALUES (\"".$_POST['UserId']."\",\"".$_POST['Name']."\",\"".$_POST['Email']."\",\"".$_POST['Class']." - ".$_POST['Div']."\",".$_POST['RollNo'].",\"".$_POST['Pass']."\")";
-			echo "$sql";
 
 			if (mysqli_query($conn, $sql)) {
 				echo "Created Profile, redirecting to login...";

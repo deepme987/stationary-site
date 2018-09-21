@@ -9,6 +9,9 @@
 </head>
 <body>
 
+	<?php
+		include 'session.php';
+	?>
 	<div id='nav'>
 		<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #333;">
 			<a class="navbar-brand" href="#">Aakash Stationary</a>
