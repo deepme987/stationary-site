@@ -41,6 +41,6 @@
                     include 'dashboard.php';
                 }
             ?>
-        </div>
+    </div>
 </body>
 </html>
