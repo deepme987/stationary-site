@@ -120,7 +120,7 @@
 			mysqli_close($conn);
 
 			echo "Registered successfully!";
-			header("refresh:3; url=http://localhost/Git/stationary-site/index.php");
+			header("refresh:3; url=http://localhost:8080/stationary-site/index.php");
 		}
 	?>
 </body>

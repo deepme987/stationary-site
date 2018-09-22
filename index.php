@@ -19,7 +19,7 @@
 	<div class="block">
 	  
 		<div class="image">
-			<img src="Addons/person-flat.png" alt="P">
+			<img src="addons/person-flat.png" alt="P">
 		</div>
 	  
 		<div class="form">
