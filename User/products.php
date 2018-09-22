@@ -54,7 +54,7 @@
             {
                 echo "
                     <div class='card' style='width: 22rem;'>
-                        <img class='card-img-top' src='addons\\".$row["Link"]."' alt='".$row["Pname"]."'>
+                        <img class='card-img-top' src='addons/".$row["Link"]."' alt='".$row["Pname"]."'>
                         <div class='card-body'>
                           <p class='card-text'>".$row["Pname"]."<br>Cost:₹".$row["Cost"]."<br>Quantity<input type='number'></p>
                          </div>
