@@ -33,6 +33,7 @@
         }
         input[type='number']
         {
+            padding:0px;
             width: 50px;
             margin-left: 10px;
         }
