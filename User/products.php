@@ -56,14 +56,28 @@
                     <div class='card' style='width: 22rem;'>
                         <img class='card-img-top' src='addons/".$row["Link"]."' alt='".$row["Pname"]."'>
                         <div class='card-body'>
-                          <p class='card-text'>".$row["Pname"]."<br>Cost:₹".$row["Cost"]."<br>Quantity<input type='number'></p>
+                        	<form action='' method='POST'>
+                         	<p class='card-text'>".$row["Pname"]."<br>Cost:₹".$row["Cost"]."<br>Quantity<input type='number' name='quantity' value='1'></p>
                          </div>
-                        <button type='button' name='".$row['Pid']."cart' class='btn btn-primary'>Primary</button>
+                        <button type='submit' name='submit' value='".$row['Pid']."' class='btn btn-primary'>Add to cart</button></form>
                      </div>
                     ";
             }
         ?>
     </div>
+
+    <?php
+    	if (isset($_POST["submit"])) {
+			if (isset($_SESSION['cart']["".$_POST['submit'].""])) {
+				$_SESSION['cart']["".$_POST['submit'].""] += $_POST['quantity'] ;
+			}
+			else {
+				$_SESSION['cart']["".$_POST['submit'].""] = $_POST['quantity'];
+			}
+		}
+
+		header('Location: index.php?page=products');
+    ?>
 
 </body>
 </html>
