@@ -68,15 +68,21 @@
 
     <?php
     	if (isset($_POST["submit"])) {
-			if (isset($_SESSION['cart']["".$_POST['submit'].""])) {
-				$_SESSION['cart']["".$_POST['submit'].""] += $_POST['quantity'] ;
-			}
-			else {
-				$_SESSION['cart']["".$_POST['submit'].""] = $_POST['quantity'];
-			}
+    		if ($_POST['quantity'] > 0) {
+				if (isset($_SESSION['cart']["".$_POST['submit'].""])) {
+					$_SESSION['cart']["".$_POST['submit'].""] += $_POST['quantity'] ;
+				}
+				else {
+					$_SESSION['cart']["".$_POST['submit'].""] = $_POST['quantity'];
+				}
+    		}
+
+    		else {
+    			echo ("Invalid quantity");
+    		}
 		}
 
-		header('Location: index.php?page=products');
+		// header('Location: index.php?page=products');
     ?>
 
 </body>
