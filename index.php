@@ -72,7 +72,7 @@
 				function session() {
 					session_start();
 
-					$_SESSION['id']=$_POST['id'];
+					$_SESSION['id'] = $_POST['id'];
 
 					if ($_SESSION['id']=='0')
 					{
@@ -80,6 +80,7 @@
 					}
 					else
 					{
+						$_SESSION['cart'] = array();
 						header("Location: User/");
 					}
 				}
