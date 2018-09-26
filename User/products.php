@@ -82,7 +82,7 @@
     		}
 		}
 
-		// header('Location: index.php?page=products');
+		header('Location: index.php?page=products');
     ?>
 
 </body>
