@@ -30,7 +30,7 @@
            		$data = mysqli_query($conn, $sql) or die("Item not found.");
             	$row = mysqli_fetch_assoc($data);
 
-                echo "<tr><td>".$row['Pname']."</td><td>".$value."</td><td>".$row['Cost']*$value."</td><td><button><i class='fa fa-times'></i></button></td><tr>";
+                echo "<tr><td>".$row['Pname']."</td><td>".$value."</td><td>".$row['Cost']*$value."</td><td><form action='' method='POST'><button><i class='fa fa-times'></i></button></form></td><tr>";
                 $total += $row['Cost']*$value;
             }
             echo "</table></div>";
