@@ -36,7 +36,6 @@
             width: 50px;
             margin-left: 10px;
         }
-        
     </style>
 </head>
 <body>
@@ -52,16 +51,14 @@
             $data = mysqli_query($conn, $get_all) or die("No records found.");
             while($row = mysqli_fetch_assoc($data))
             {
-                echo "
-                    <div class='card' style='width: 22rem;'>
+                echo "<div class='card' style='width: 22rem;'>
                         <img class='card-img-top' src='addons/".$row["Link"]."' alt='".$row["Pname"]."'>
                         <div class='card-body'>
                         	<form action='' method='POST'>
                          	<p class='card-text'>".$row["Pname"]."<br>Cost:₹".$row["Cost"]."<br>Quantity<input type='number' name='quantity' value='1'></p>
                          </div>
                         <button type='submit' name='submit' value='".$row['Pid']."' class='btn btn-primary'>Add to cart</button></form>
-                     </div>
-                    ";
+                     </div>";
             }
         ?>
     </div>
@@ -80,9 +77,8 @@
     		else {
     			echo ("Invalid quantity");
     		}
+			header('Location: index.php?page=products');
 		}
-
-		header('Location: index.php?page=products');
     ?>
 
 </body>
