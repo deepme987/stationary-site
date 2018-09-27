@@ -28,6 +28,7 @@
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
+					<li class="nav-item"><a class="nav-link <?php if($_GET["page"]=="cart"){echo 'active';}?>" href="index.php?page=cart">Cart</a></li>
 					<li><a class="nav-link" href="../">Logout</a></li>
 				</ul>
 			</div>
