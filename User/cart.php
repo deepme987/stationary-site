@@ -3,20 +3,42 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Cart</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-	<?php
-		print_r($_SESSION['cart']);
 
-		echo '<form action="" method="POST">
-							<button type="submit" name="submit" value="1">Delete</button>
-				</form>';
+	<div class="flex">
+		<div class='table'>
+        	<table>
+        		<tr>
+					<th>Product</th>
+					<th>Quantity</th>
+					<th>Cost</th>
+					<th>Remove</th>
+				</tr>
+        <?php
+        	$user = 'user';
+            $pass = 'sakec';
+            $db = 'stationary';
+            $conn = new mysqli('localhost', $user, $pass, $db) or die("Unable to connect to server".$db);
 
-		if (isset($_POST["submit"])) {
-			unset($_SESSION['cart']["3"]);
-			header('Location: index.php?page=cart');
-		}
+            $total = 0;
+           	foreach ($_SESSION['cart'] as $key => $value) 
+           	{
+           		$sql = "select * from products where Pid=\"".$key."\"";
+           		
+           		$data = mysqli_query($conn, $sql) or die("Item not found.");
+            	$row = mysqli_fetch_assoc($data);
 
-	?>
+                echo "<tr><td>".$row['Pname']."</td><td>".$value."</td><td>".$row['Cost']*$value."</td><td><button><i class='fa fa-times'></i></button></td><tr>";
+                $total += $row['Cost']*$value;
+            }
+            echo "</table></div>";
+
+            echo "Total: ".$total;
+            mysqli_close($conn);
+        ?>
+    </div>
+
 </body>
 </html>
