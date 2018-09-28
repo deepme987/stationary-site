@@ -38,12 +38,10 @@
 				if (isset($_POST['Register'])) {
 					header("Location: register.php");
 				}
-
-				if (isset($_POST['login'])&&$_POST['id']!="") {
+                
+				if (isset($_POST['login'])&&$_POST['id']!=""&&$_POST['pass']!="") {
 					validate();
 				}
-
-		    	if (isset($_POST['login'])&&$_POST['id']!="") {validate();}
 
 				function validate()
 				{
