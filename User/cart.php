@@ -53,6 +53,10 @@
 			color: white;
 		}
 
+		.checkout {
+
+		}
+
 	</style>
 </head>
 <body>
@@ -77,6 +81,7 @@
         	$user = 'user';
             $pass = 'sakec';
             $db = 'stationary';
+
             $conn = new mysqli('localhost', $user, $pass, $db) or die("Unable to connect to server".$db);
 
             $total = 0;
@@ -90,12 +95,33 @@
                 echo "<tr><td>".$row['Pname']."</td><td>".$value."</td><td>".$row['Cost']*$value."</td><td><form action='' method='POST'><button class='blank' value='".$key."' name='submit'><i class='fa fa-times'></i></button></form></td></tr>";
                 $total += $row['Cost']*$value;
             }
-            echo "<tr class='last'><td>Total</td><td></td><td>".$total."</td><td></td>";
-            echo "</table></div>";
+            echo "<tr class='last'><td>Total</td><td></td><td>".$total."</td><td></td> </table></div>";
+
+            echo "<div class='checkout'><form action='' method='POST'><button class='checkout-button' name='checkout'>Checkout</button></form></div>";
 
             mysqli_close($conn);
         ?>
     </div>
+
+    <?php
+    	if (isset($_POST['checkout'])) {
+
+			$date = date("Y-m-d");
+			
+			date_default_timezone_set("Asia/Kolkata");
+			$time = date("h:i:sa");
+
+			$user = 'user';
+            $pass = 'sakec';
+            $db = 'stationary';
+
+            $conn = new mysqli('localhost', $user, $pass, $db) or die("Unable to connect to server".$db);
+
+            $sql = "INSERT INTO `orders`(`Uid`, `date`, `time`, `Cost`) VALUES (\"".$_SESSION['id']."\",now(),now(),".$total.")";
+
+            echo $sql;
+         }
+    ?>
 
 </body>
 </html>
