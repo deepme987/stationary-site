@@ -80,7 +80,7 @@
                      </div>";
             }
 
-            mysqli_close();
+            mysqli_close($conn);
         ?>
     </div>
 

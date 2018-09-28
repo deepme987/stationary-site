@@ -7,6 +7,13 @@
 </head>
 <body>
 
+	<?php
+		if (isset($_POST['submit'])) {
+			header("Location: index.php?page=cart");
+			unset($_SESSION['cart']["".$_POST['submit'].""]);
+		}
+	?>
+
 	<div class="flex">
 		<div class='table'>
         	<table>
@@ -30,7 +37,7 @@
            		$data = mysqli_query($conn, $sql) or die("Item not found.");
             	$row = mysqli_fetch_assoc($data);
 
-                echo "<tr><td>".$row['Pname']."</td><td>".$value."</td><td>".$row['Cost']*$value."</td><td><form action='' method='POST'><button><i class='fa fa-times'></i></button></form></td><tr>";
+                echo "<tr><td>".$row['Pname']."</td><td>".$value."</td><td>".$row['Cost']*$value."</td><td><form action='' method='POST'><button value='".$key."' name='submit'><i class='fa fa-times'></i></button></form></td><tr>";
                 $total += $row['Cost']*$value;
             }
             echo "</table></div>";
