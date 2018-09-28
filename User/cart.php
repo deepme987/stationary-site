@@ -4,6 +4,56 @@
 	<meta charset="UTF-8">
 	<title>Cart</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+
+		.cart {
+			margin-top: 30px
+		}
+
+		.blank {
+			border: none;
+			background: none;
+		}
+
+		.blank:hover {
+			cursor: pointer;
+		}
+
+		.table {
+			width: 80%
+			/*margin: 10px 0 0 0;*/
+		}
+
+		.table th {
+			background-color: #555;
+			color: white;
+		}
+
+		.table th, .table td {
+			text-align: center;
+		}
+
+
+		.table tr:nth-child(odd) {
+			background-color: #f2f2f2;
+		}
+
+		.table tr:hover {
+			background-color: #AAA;
+			color: lime;
+		}
+
+		.table tr:last-child:hover {
+			background-color: #555;
+			color: white;
+		}
+
+		.last {
+			background: #555;
+			color: white;
+		}
+
+	</style>
 </head>
 <body>
 
@@ -15,8 +65,8 @@
 	?>
 
 	<div class="flex">
-		<div class='table'>
-        	<table>
+		<div class="cart">
+        	<table class="table" align="center">
         		<tr>
 					<th>Product</th>
 					<th>Quantity</th>
@@ -37,12 +87,12 @@
            		$data = mysqli_query($conn, $sql) or die("Item not found.");
             	$row = mysqli_fetch_assoc($data);
 
-                echo "<tr><td>".$row['Pname']."</td><td>".$value."</td><td>".$row['Cost']*$value."</td><td><form action='' method='POST'><button value='".$key."' name='submit'><i class='fa fa-times'></i></button></form></td><tr>";
+                echo "<tr><td>".$row['Pname']."</td><td>".$value."</td><td>".$row['Cost']*$value."</td><td><form action='' method='POST'><button class='blank' value='".$key."' name='submit'><i class='fa fa-times'></i></button></form></td></tr>";
                 $total += $row['Cost']*$value;
             }
+            echo "<tr class='last'><td>Total</td><td></td><td>".$total."</td><td></td>";
             echo "</table></div>";
 
-            echo "Total: ".$total;
             mysqli_close($conn);
         ?>
     </div>
