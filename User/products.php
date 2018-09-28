@@ -1,5 +1,8 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <title>Products</title>
     <style>
         /*@media(max-width:400px)
         {
@@ -40,7 +43,7 @@
     </style>
 </head>
 <body>
-
+    
     <?php
     	if (isset($_POST["submit"])) {
 			header('Location: index.php?page=products');
