@@ -38,6 +38,11 @@
 			background-color: #f2f2f2;
 		}
 
+		.table tr:last-child {
+			background-color: #555;
+			color: white;
+		}
+
 		.table tr:hover {
 			background-color: #AAA;
 			color: lime;
@@ -45,11 +50,6 @@
 
 		.table tr:last-child:hover {
 			background-color: #555;
-			color: white;
-		}
-
-		.last {
-			background: #555;
 			color: white;
 		}
 
