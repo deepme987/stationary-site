@@ -13,7 +13,7 @@
 	?>
 	<div id='nav'>
 		<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #333;">
-			<a class="navbar-brand" href="#">Aakash Stationary</a>
+			<a class="navbar-brand" href="index.php?page=products">Aakash Stationary</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -43,7 +43,7 @@
                     include $p;
                 }
                 else {
-                    include 'home.php';
+                    include 'products.php';
                 }
             ?>
         </div>

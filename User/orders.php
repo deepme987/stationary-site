@@ -3,11 +3,39 @@
 <head>
 	<meta charset="UTF-8">
 	<title>My Orders</title>
+	<style>
+		<style>
+
+			.cart {
+				margin-top: 30px
+			}
+
+			.blank:hover {
+				cursor: pointer;
+			}
+
+			.table {
+				width: 80%
+				/*margin: 10px 0 0 0;*/
+			}
+
+			.table th {
+				background-color: #555;
+				color: white;
+			}
+
+			.table th, .table td {
+				text-align: center;
+			}
+
+			.checkout {
+
+			}
+
+	</style>
+	</style>
 </head>
 <body>
-<!-- 	SELECT orders.Oid, date, time, cost, ordered.Pid, ordered.Quantity
-FROM orders NATURAL JOIN ordered
-	SELECT * FROM orders -->
 	
     <?php
 
