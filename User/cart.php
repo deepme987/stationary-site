@@ -118,6 +118,19 @@
 
             $data = mysqli_query($conn, $sql) or die("Internal Error.");
 
+            $sql = "select Oid from orders order by Oid desc limit 1";
+            $data = mysqli_query($conn, $sql) or die("Internal Error.");
+            $row = mysqli_fetch_assoc($data);
+
+            $oid = $row['Oid'];
+
+            foreach ($_SESSION['cart'] as $key => $value) 
+            {
+                $sql = "INSERT INTO `ordered`(`Oid`, `Pid`, `Quantity`) VALUES ($oid,$key, $value)";
+
+            	$data = mysqli_query($conn, $sql) or die("Internal Error.");
+            }
+
             $_SESSION['cart'] = array();
          }
     ?>
