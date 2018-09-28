@@ -106,10 +106,7 @@
     <?php
     	if (isset($_POST['checkout'])) {
 
-			$date = date("Y-m-d");
-			
-			date_default_timezone_set("Asia/Kolkata");
-			$time = date("h:i:sa");
+    		header("Location: index.php?page=cart");
 
 			$user = 'user';
             $pass = 'sakec';
@@ -119,7 +116,9 @@
 
             $sql = "INSERT INTO `orders`(`Uid`, `date`, `time`, `Cost`) VALUES (\"".$_SESSION['id']."\",now(),now(),".$total.")";
 
-            echo $sql;
+            $data = mysqli_query($conn, $sql) or die("Internal Error.");
+
+            $_SESSION['cart'] = array();
          }
     ?>
 
