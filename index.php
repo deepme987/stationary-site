@@ -43,8 +43,6 @@
 					validate();
 				}
 
-		    	if (isset($_POST['login'])&&$_POST['id']!="") {validate();}
-
 				function validate()
 				{
 					$user = 'user';
