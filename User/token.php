@@ -7,6 +7,10 @@
 <?php
     if(isset($_POST['submit']))
     {   
-        $_POST['slot'];
+        $user='user';
+        $pass='sakec';
+        $db='stationary';
+        
+        $conn= new mysqli('localhost',user)
     }
 ?>
