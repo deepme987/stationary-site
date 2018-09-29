@@ -40,12 +40,7 @@
     <?php
 
     	if (isset($_GET['id'])) {
-    		echo '<div class="cart">
-    			    <table class="table" align="center">
-     				   	<tr>
-							<th>Pid</th>
-							<th>Quantity</th>
-						</tr>';
+    		
 	       	$user = 'user';
 	        $pass = 'sakec';
 	        $db = 'stationary';
@@ -53,8 +48,29 @@
 	        $conn = new mysqli('localhost', $user, $pass, $db) or die("Unable to connect to server".$db);
 
 			$sql = "select * from ordered where Oid='".$_GET['id']."'";
+			$osql = "select * from orders where Oid='".$_GET['id']."'";
 
 			$data = mysqli_query($conn, $sql) or die("Item not found.");
+			$odata = mysqli_query($conn, $osql) or die("Item not found.");
+			$order = mysqli_fetch_assoc($odata);
+
+			if ($_SESSION['id']!=$order['Uid']) {
+				die("Stop trying to steal other's details!");
+			}
+
+			echo '<div class="top">
+    			  	<h3>Order No: '.$_GET["id"].'</h3>
+    			  	<p>Total: '.$order["Cost"].'</p>
+    			  	<p>Status: '.$order["Status"].'</p>
+    			  	<h4>Items:</h4>
+    			  </div>
+
+    			  <div class="cart">
+    			    <table class="table" align="center">
+     				   	<tr>
+							<th>Pid</th>
+							<th>Quantity</th>
+						</tr>';
 
 			while ($row = mysqli_fetch_assoc($data))
 			{
@@ -62,6 +78,8 @@
 				$temp = mysqli_query($conn, $psql) or die("Product not found.");
 
 				$product = mysqli_fetch_assoc($temp);
+
+
 
 	            echo "<tr><td>".$product['Pname']."</td><td>".$row['Quantity']."</td></tr></div>";
 	        }

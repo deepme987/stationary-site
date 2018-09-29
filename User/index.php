@@ -22,11 +22,11 @@
 
 			<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
 				<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-					<li class="nav-item"><a class="nav-link<?php if($_GET["page"]==""){echo 'active';}?>" href="index.php">Home <span class="sr-only">(current)</span></a></li>
+					<li class="nav-item"><a class="nav-link <?php if($_GET["page"]==""){echo 'active';}?>" href="index.php">Home <span class="sr-only">(current)</span></a></li>
 					<li class="nav-item"><a class="nav-link <?php if($_GET["page"]=="token"){echo 'active';}?>" href="index.php?page=token">Generate Xerox Token</a></li>
 					<li class="nav-item"><a class="nav-link <?php if($_GET["page"]=="products"){echo 'active';}?>" href="index.php?page=products">Products</a></li>
 					<li class="nav-item"><a class="nav-link <?php if($_GET["page"]=="orders"){echo 'active';}?>" href="index.php?page=orders">My Orders</a></li>
-					<li class="nav-item"><a class="nav-link <?php if($_GET["page"]=="profile"){echo 'active';}?>" href="index.php?page=profile">Profile</a></li>
+					<li class="nav-item"><a class="nav-link <?php if($_GET["page"]=="profile"||$_GET["page"]=="pass"){echo 'active';}?>" href="index.php?page=profile">Profile</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">

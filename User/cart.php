@@ -113,9 +113,7 @@
     </div>
 
     <?php
-    	if (isset($_POST['checkout'])) {
-
-    		header("Location: index.php?page=cart");
+    	if (isset($_POST['checkout'])&&(sizeof($_SESSION['cart'])!=0)) {	
 
 			$user = 'user';
             $pass = 'sakec';
@@ -132,6 +130,7 @@
             $row = mysqli_fetch_assoc($data);
 
             $oid = $row['Oid'];
+    		header("Location: index.php?page=orders&id=".$oid."");
 
             foreach ($_SESSION['cart'] as $key => $value) 
             {
