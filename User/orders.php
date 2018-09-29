@@ -5,9 +5,11 @@
 	<title>My Orders</title>
 	<style>
 		<style>
-
+			.topdiv {
+				margin-top: 30px;
+			}
 			.cart {
-				margin-top: 30px
+				margin: 30px
 			}
 
 			.blank:hover {
@@ -15,7 +17,7 @@
 			}
 
 			.table {
-				width: 80%
+				width: 100%
 				/*margin: 10px 0 0 0;*/
 			}
 
@@ -58,7 +60,7 @@
 				die("Stop trying to steal other's details!");
 			}
 
-			echo '<div class="top">
+			echo '<div class="cart">
     			  	<h3>Order No: '.$_GET["id"].'</h3>
     			  	<p>Total: '.$order["Cost"].'</p>
     			  	<p>Status: '.$order["Status"].'</p>
