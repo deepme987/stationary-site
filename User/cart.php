@@ -52,10 +52,14 @@
 			background-color: #555;
 			color: white;
 		}
-
-		.checkout {
-
-		}
+        .checkout
+        {
+            text-align: center;
+        }
+        .checkout button
+        {
+            
+        }
 
 	</style>
 </head>
@@ -97,10 +101,15 @@
             }
             echo "<tr class='last'><td>Total</td><td></td><td>".$total."</td><td></td> </table></div>";
 
-            echo "<div class='checkout'><form action='' method='POST'><button class='checkout-button' name='checkout'>Checkout</button></form></div>";
+            echo "<div class='checkout'>
+                    <form action='' method='POST'>
+                        <button class='checkout-button' name='checkout'>Checkout</button>
+                    </form>
+                </div>";
 
             mysqli_close($conn);
         ?>
+        </div>
     </div>
 
     <?php
