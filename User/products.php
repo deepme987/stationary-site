@@ -24,9 +24,7 @@
         }
         .card
         {
-            margin:10px;
-            flex:50%;
-            max-width: 50%;
+            margin:20px 0px;
         }
         .card:hover
         {

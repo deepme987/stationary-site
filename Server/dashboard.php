@@ -50,7 +50,7 @@
 
 			$sql = "update orders set Status='Ready' where Oid='".$_POST['ready']."'";
 
-			$data = mysqli_query($conn, $sql) or die("Item not found.");
+			$data = mysqli_query($conn, $sql) or die("Item not found.");	
 
 			$sql = "SELECT Email FROM profile natural join orders where orders.Oid='".$_POST['ready']."'";
 			$data = mysqli_query($conn, $sql) or die("User not found!");
