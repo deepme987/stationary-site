@@ -45,14 +45,14 @@
 		  float: left;
 		}
 
-		div.tags > ul, div.container > form > ul {
-		  list-style-type: none;
 		div.tags > ul > li, div.container > form > ul > li {
 			font-style: Georgia,serif;
 			font-size: 15px;
 		  padding: 15px;
 		}
 
+		div.tags > ul, div.container > form > ul {
+		  list-style-type: none;
 		}
 	</style>
 </head>
