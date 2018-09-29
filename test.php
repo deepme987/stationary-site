@@ -1,20 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Hello</title>
-</head>
-<body>
-	<?php
-		$x = 1;
-		for ($i=0; $i < 5; $i++) { 
-			all db queries
+<?php
+// the message
+$msg = "First line of text\nSecond line of text";
 
-			$row = mysqli_fetch_assoc();
-	?>
-		<div><p class="btn <?php if()?>"></p></div>
-	<?php
-		}
-	?>
-</body>
-</html>
+// use wordwrap() if lines are longer than 70 characters
+$msg = wordwrap($msg,70);
+
+// send email
+mail("deep.mehta@sakec.ac.in","My subject",$msg);
+?>
