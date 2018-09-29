@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 28, 2018 at 05:14 PM
+-- Generation Time: Sep 30, 2018 at 01:03 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -29,10 +29,30 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `ordered` (
-  `Oid` varchar(10) NOT NULL,
+  `Oid` int(11) NOT NULL,
   `Pid` int(3) NOT NULL,
   `Quantity` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ordered`
+--
+
+INSERT INTO `ordered` (`Oid`, `Pid`, `Quantity`) VALUES
+(10000, 1, 5),
+(10000, 2, 5),
+(10001, 2, 1),
+(10002, 1, 5),
+(10003, 1, 5),
+(10003, 2, 10),
+(10004, 3, 10),
+(10005, 1, 10),
+(10005, 4, 5),
+(10006, 1, 1),
+(10006, 2, 1),
+(10007, 1, 1),
+(10007, 3, 1),
+(10010, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -54,9 +74,17 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`Oid`, `Uid`, `date`, `time`, `Cost`, `Status`) VALUES
-(1000, 'M2016CM1071', '2018-09-28', '20:12:35', 49, 'Processing'),
-(1002, 'M2016CM1071', '2018-09-28', '20:18:37', 49, 'Processing'),
-(1003, 'M2016CM1071', '2018-09-28', '20:20:08', 6, 'Processing');
+(10000, 'M2016CM1071', '2018-09-28', '22:11:27', 30, 'Collected'),
+(10001, 'M2016CM1071', '2018-09-28', '22:14:18', 5, 'Collected'),
+(10002, 'M2016CM1071', '2018-09-28', '22:16:14', 5, 'Collected'),
+(10003, 'M2016CM1071', '2018-09-29', '14:49:28', 55, 'Collected'),
+(10004, 'M2016CM1071', '2018-09-29', '14:51:35', 30, 'Collected'),
+(10005, 'M2016CM1071', '2018-09-29', '15:06:37', 10, 'Collected'),
+(10006, 'M2016CM1071', '2018-09-29', '15:17:29', 6, 'Collected'),
+(10007, 'M2016CM1071', '2018-09-29', '15:45:32', 4, 'Collected'),
+(10008, 'M2016CM1071', '2018-09-30', '01:08:01', 0, 'Processing'),
+(10009, 'M2016CM1071', '2018-09-30', '01:08:47', 0, 'Processing'),
+(10010, 'M2016CM1071', '2018-09-30', '01:10:42', 1, 'Processing');
 
 -- --------------------------------------------------------
 
@@ -92,6 +120,7 @@ INSERT INTO `products` (`Pid`, `Pname`, `Stock`, `Cost`, `Link`) VALUES
 CREATE TABLE `profile` (
   `Uid` varchar(15) NOT NULL,
   `Name` varchar(30) NOT NULL,
+  `MobNo` bigint(15) NOT NULL,
   `Email` varchar(25) NOT NULL,
   `Class` varchar(4) NOT NULL,
   `RollNo` int(2) NOT NULL,
@@ -102,10 +131,34 @@ CREATE TABLE `profile` (
 -- Dumping data for table `profile`
 --
 
-INSERT INTO `profile` (`Uid`, `Name`, `Email`, `Class`, `RollNo`, `Pass`) VALUES
-('0', '', '', '', 0, 'root'),
-('M2016CM1071', 'Deep Mehta', 'deepme987@gmail.com', 'TE -', 60, 'hello'),
-('M2016CM1072', 'Deep', 'deepme987@gmail.com', 'TE -', 12, 'sakec');
+INSERT INTO `profile` (`Uid`, `Name`, `MobNo`, `Email`, `Class`, `RollNo`, `Pass`) VALUES
+('0', '', 0, '', '', 0, 'root'),
+('M2016CM1071', 'Deep Mehta', 9870000393, 'deepme987@gmail.com', 'TE -', 60, 'sakec'),
+('M2016CM1072', 'Deep', 9870000393, 'deepme987@gmail.com', 'TE -', 12, 'sakec');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tokens`
+--
+
+CREATE TABLE `tokens` (
+  `TokenId` int(11) NOT NULL,
+  `CustomerId` varchar(15) NOT NULL,
+  `Time` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tokens`
+--
+
+INSERT INTO `tokens` (`TokenId`, `CustomerId`, `Time`) VALUES
+(1018, 'M2016CM1071', '12.40-12.55'),
+(1019, 'M2016CM1071', '9.00-9.15'),
+(1020, 'M2016CM1071', '10.20-10.35'),
+(1021, 'M2016CM1071', '10.20-10.35'),
+(1022, 'M2016CM1071', '12.00-12.15'),
+(1023, 'M2016CM1071', '2.40-2.55');
 
 -- --------------------------------------------------------
 
@@ -143,6 +196,12 @@ ALTER TABLE `profile`
   ADD PRIMARY KEY (`Uid`);
 
 --
+-- Indexes for table `tokens`
+--
+ALTER TABLE `tokens`
+  ADD PRIMARY KEY (`TokenId`);
+
+--
 -- Indexes for table `xerox`
 --
 ALTER TABLE `xerox`
@@ -156,7 +215,13 @@ ALTER TABLE `xerox`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `Oid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10000;
+  MODIFY `Oid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10011;
+
+--
+-- AUTO_INCREMENT for table `tokens`
+--
+ALTER TABLE `tokens`
+  MODIFY `TokenId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1024;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
