@@ -69,13 +69,13 @@
 
 				<div class="form-group col-sm-4">
 				    <label for="Div">Class</label>
-				    <select class="form-control col-sm-3" name="Div" name="Div">
-					    <option>1</option>
-					    <option>2</option>
-					    <option>3</option>
-					    <option>4</option>
-					    <option>5</option>
-					    <option>D</option>
+					<select class="form-control col-sm-3" name="Div" name="Div">
+					    <option value="1">1</option>
+					    <option value="2">2</option>
+					    <option value="3">3</option>
+					    <option value="4">4</option>
+					    <option value="5">5</option>
+					    <option value="D">D</option>
 					</select>
 				</div>
 
@@ -109,6 +109,8 @@
 
 			$sql = "INSERT INTO `profile`(`Uid`, `Name`, `Email`, `Class`, `RollNo`, `Pass`) VALUES (\"".$_POST['UserId']."\",\"".$_POST['Name']."\",\"".$_POST['Email']."\",\"".$_POST['Class']." - ".$_POST['Div']."\",".$_POST['RollNo'].",\"".$_POST['Pass']."\")";
 
+			echo $sql;
+
 			if (mysqli_query($conn, $sql)) {
 				echo "Created Profile, redirecting to login...";
 			}
@@ -120,7 +122,7 @@
 			mysqli_close($conn);
 
 			echo "Registered successfully!";
-			header("refresh:3; url=http://localhost:8080/stationary-site/index.php");
+			// header("Location: index.php");
 		}
 	?>
 </body>

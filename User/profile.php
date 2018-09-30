@@ -5,55 +5,70 @@
 	<title>Profile</title>
 	<style>
 		.tags {
-		    float:left;
-		    text-align: right;
-		    padding-top: 17px;
-		    padding-right: 0px;
-		    margin:20px;
-		    margin-top:0px;
-		    /*background-color: aquamarine;*/
+			float:left;
+			text-align: right;
+			padding-top: 17px;
+			padding-right: 0px;
+			margin:20px;
+			margin-top:0px;
+			/*background-color: aquamarine;*/
 		}
 		.tags ul
 		{
-		    padding:0px;
+			padding:0px;
 		}
 		.tags ul li
 		{
-		    /*font-family: cursive;*/
-		    font-weight: bold;
+			/*font-family: cursive;*/
+			font-weight: bold;
 		}
 		.container {
-		    text-align:left;
-		    padding:25px;
-		    padding-top: 0px;
-		    padding-right: 0px;
-		    margin:30px;
-		    /*background-color:blueviolet;*/
+			text-align:left;
+			padding:25px;
+			padding-top: 0px;
+			padding-right: 0px;
+			margin:30px;
+			/*background-color:blueviolet;*/
 		}
 		.container ul
 		{
-		    padding:0px;
+			padding:0px;
 		}
 		.container ul li
 		{
-		    text-transform: uppercase;
-		    /*font-family: cursive;*/
+			text-transform: uppercase;
+			/*font-family: cursive;*/
 		}
 		.container > form > input {
-		  border-spacing: 5px;
-		  padding: 10px;
-		  float: left;
+			border-spacing: 5px;
+			padding: 10px;
+			float: left;
 		}
 
 		div.tags > ul > li, div.container > form > ul > li {
 			font-style: Georgia,serif;
 			font-size: 15px;
-		  padding: 15px;
+			padding: 15px;
 		}
 
 		div.tags > ul, div.container > form > ul {
-		  list-style-type: none;
+			list-style-type: none;
 		}
+
+		@media only screen and (max-width: 400px) {
+		.tags {
+			margin: 0px;
+		}
+
+		.container {
+			margin: 0px;
+		}
+
+		.ipfield {
+			width: 60%;
+		}
+
+}
 	</style>
 </head>
 <body>
@@ -101,10 +116,10 @@
 
 	<?php
 			$user = 'user';
-	        $pass = 'sakec';
-	        $db = 'stationary';
+			$pass = 'sakec';
+			$db = 'stationary';
 
-	        $conn = new mysqli('localhost', $user, $pass, $db) or die("Unable to connect to server".$db);
+			$conn = new mysqli('localhost', $user, $pass, $db) or die("Unable to connect to server".$db);
 
 			$sql = "select * from profile where Uid='".$_SESSION['id']."'";
 
@@ -119,8 +134,8 @@
 					<li><span>'.$row["Name"].'</span><br></li>
 					<li><span>'.$row["Class"].'</span><br></li>
 					<li><span>'.$row["RollNo"].'</span><br></li>
-					<li><input type="email" name="Email" value="'.$row["Email"].'"><br></li>
-					<li><input type="text" name="MobNo" value="'.$row["MobNo"].'"><br></li>
+					<li><input class="ipfield" type="email" name="Email" value="'.$row["Email"].'"><br></li>
+					<li><input class="ipfield" type="text" name="MobNo" value="'.$row["MobNo"].'"><br></li>
 					<input name="update" type="submit" value="Update">
 					<input name="pass" type="submit" value="Change Pass"></ul>
 				</form> 
