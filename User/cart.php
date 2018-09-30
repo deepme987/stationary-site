@@ -107,7 +107,7 @@
             $data = mysqli_query($conn, $sql) or die("Internal Error.");
             $row = mysqli_fetch_assoc($data);
             $oid = $row['Oid'];
-            header('Location: index.php?page=orders&id='.$oid.'');
+            header("Location: index.php?page=orders&id=".$oid."");
             foreach ($_SESSION['cart'] as $key => $value) 
             {
                 $sql = "INSERT INTO `ordered`(`Oid`, `Pid`, `Quantity`) VALUES ($oid,$key, $value)";

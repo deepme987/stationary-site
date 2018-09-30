@@ -3,6 +3,13 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Tokens</title>
+    <style>
+        form{
+            margin-top:10px;
+            width:100%;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 	
