@@ -70,49 +70,7 @@
 			header("Location: index.php?page=cart");
 			unset($_SESSION['cart']["".$_POST['submit'].""]);
 		}
-	?>
-
-	<div class="flex">
-		<div class="cart">
-        	<table class="table" align="center">
-        		<tr>
-					<th>Product</th>
-					<th>Quantity</th>
-					<th>Cost</th>
-					<th>Remove</th>
-				</tr>
-        <?php
-        	$user = 'user';
-            $pass = 'sakec';
-            $db = 'stationary';
-
-            $conn = new mysqli('localhost', $user, $pass, $db) or die("Unable to connect to server".$db);
-
-            $total = 0;
-           	foreach ($_SESSION['cart'] as $key => $value) 
-           	{
-           		$sql = "select * from products where Pid=\"".$key."\"";
-           		
-           		$data = mysqli_query($conn, $sql) or die("Item not found.");
-            	$row = mysqli_fetch_assoc($data);
-
-                echo "<tr><td>".$row['Pname']."</td><td>".$value."</td><td>".$row['Cost']*$value."</td><td><form action='' method='POST'><button class='blank' value='".$key."' name='submit'><i class='fa fa-times'></i></button></form></td></tr>";
-                $total += $row['Cost']*$value;
-            }
-            echo "<tr class='last'><td>Total</td><td></td><td>".$total."</td><td></td> </table></div>";
-
-            echo "<div class='checkout'>
-                    <form action='' method='POST'>
-                        <button class='checkout-button' name='checkout'>Checkout</button>
-                    </form>
-                </div>";
-
-            mysqli_close($conn);
-        ?>
-        </div>
-    </div>
-
-    <?php
+    
     	if (isset($_POST['checkout'])&&(sizeof($_SESSION['cart'])!=0)) {	
 
 			$user = 'user';
@@ -140,8 +98,49 @@
             }
 
             $_SESSION['cart'] = array();
-         }
-    ?>
+        }
+	?>
+
+	<div class="flex">
+		<div class="cart">
+            <div>
+                <table class="table" align="center">
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Cost</th>
+                        <th>Remove</th>
+                    </tr>
+                <?php
+                    $user = 'user';
+                    $pass = 'sakec';
+                    $db = 'stationary';
+
+                    $conn = new mysqli('localhost', $user, $pass, $db) or die("Unable to connect to server".$db);
+
+                    $total = 0;
+                    foreach ($_SESSION['cart'] as $key => $value) 
+                    {
+                        $sql = "select * from products where Pid=\"".$key."\"";
+
+                        $data = mysqli_query($conn, $sql) or die("Item not found.");
+                        $row = mysqli_fetch_assoc($data);
+
+                        echo "<tr><td>".$row['Pname']."</td><td>".$value."</td><td>".$row['Cost']*$value."</td><td><form action='' method='POST'><button class='blank' value='".$key."' name='submit'><i class='fa fa-times'></i></button></form></td></tr>";
+                        $total += $row['Cost']*$value;
+                    }
+                    echo "<tr class='last'><td>Total</td><td></td><td>".$total."</td><td></td> </table></div>";
+
+                    echo "<div class='checkout'>
+                            <form action='' method='POST'>
+                                <button class='checkout-button' name='checkout'>Checkout</button>
+                            </form>
+                        </div>";
+
+                    mysqli_close($conn);
+                ?>
+        </div>
+    </div>
 
 </body>
 </html>

@@ -24,29 +24,29 @@
 				<!-- <input autocomplete="off" name="hidden" type="text" style="display:none;"> -->
 				<div class="form-group col-sm-4">
 					<label for="Email">Email address</label>
-					<input type="text" class="form-control" name="Email" placeholder="Enter email">
+					<input type="text" class="form-control" name="Email" placeholder="Enter email" required>
 				</div>
 
 				<div class="form-group col-sm-4">
 					<label for="UserId">Smart Card</label>
-					<input type="text" class="form-control" name="UserId" placeholder="Smart Card Id">
+					<input type="text" class="form-control" name="UserId" placeholder="Smart Card Id" required>
 				</div>
 
 				<div class="form-group col-sm-4">
 					<label for="Pass">Password</label>
-					<input type="password" class="form-control" name="Pass" placeholder="Password">
+					<input type="password" class="form-control" name="Pass" placeholder="Password" required>
 				</div>
 
 				<div class="form-group col-sm-4">
 					<label for="Name">Name</label>
-					<input type="text" class="form-control" name="Name" placeholder="Full Name">
+					<input type="text" class="form-control" name="Name" placeholder="Full Name" required>
 				</div>
 
 				<div class="form-group col-sm-4">
 					<label for="group">Year</label>
 					<div class="group">
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="Class" id="FE" value="FE">
+							<input class="form-check-input" type="radio" name="Class" id="FE" value="FE" >
 							<label class="form-check-label" for="FE">FE</label>
 						</div>
 						
@@ -66,7 +66,7 @@
 						</div>
 					</div>
 				</div>
-
+                
 				<div class="form-group col-sm-4">
 				    <label for="Div">Class</label>
 					<select class="form-control col-sm-3" name="Div" name="Div">
@@ -81,7 +81,7 @@
 
 				<div class="form-group col-sm-4">
 					<label for="RollNo">Roll No.</label>
-					<input type="text" class="form-control" name="RollNo" placeholder="Enter your Roll No">
+					<input type="text" class="form-control" name="RollNo" placeholder="Enter your Roll No" required>
 				</div>
 
 				<button type="submit" class="btn btn-primary" name="register" style="margin: 15px 0 0 15px">Register</button>
