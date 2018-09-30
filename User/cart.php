@@ -70,35 +70,6 @@
 			header("Location: index.php?page=cart");
 			unset($_SESSION['cart']["".$_POST['submit'].""]);
 		}
-    
-    	if (isset($_POST['checkout'])&&(sizeof($_SESSION['cart'])!=0)) {	
-
-			$user = 'user';
-            $pass = 'sakec';
-            $db = 'stationary';
-
-            $conn = new mysqli('localhost', $user, $pass, $db) or die("Unable to connect to server".$db);
-
-            $sql = "INSERT INTO `orders`(`Uid`, `date`, `time`, `Cost`) VALUES (\"".$_SESSION['id']."\",now(),now(),".$total.")";
-
-            $data = mysqli_query($conn, $sql) or die("Internal Error.");
-
-            $sql = "select Oid from orders order by Oid desc limit 1";
-            $data = mysqli_query($conn, $sql) or die("Internal Error.");
-            $row = mysqli_fetch_assoc($data);
-
-            $oid = $row['Oid'];
-    		header("Location: index.php?page=orders&id=".$oid."");
-
-            foreach ($_SESSION['cart'] as $key => $value) 
-            {
-                $sql = "INSERT INTO `ordered`(`Oid`, `Pid`, `Quantity`) VALUES ($oid,$key, $value)";
-
-            	$data = mysqli_query($conn, $sql) or die("Internal Error.");
-            }
-
-            $_SESSION['cart'] = array();
-        }
 	?>
 
 	<div class="flex">
@@ -139,8 +110,43 @@
 
                     mysqli_close($conn);
                 ?>
-        </div>
+     
     </div>
+            
+    <?php
+        if (isset($_POST['checkout'])&&(sizeof($_SESSION['cart'])!=0)) {	
+
+			$user = 'user';
+            $pass = 'sakec';
+            $db = 'stationary';
+
+            $conn = new mysqli('localhost', $user, $pass, $db) or die("Unable to connect to server".$db);
+
+            $sql = "INSERT INTO `orders`(`Uid`, `date`, `time`, `Cost`) VALUES (\"".$_SESSION['id']."\",now(),now(),".$total.")";
+
+            $data = mysqli_query($conn, $sql) or die("Internal Error.");
+
+            $sql = "select Oid from orders order by Oid desc limit 1";
+            if($data=mysqli_query($conn, $sql))
+            {
+            $row = mysqli_fetch_assoc($data);
+
+            $oid = $row['Oid'];
+    		header("Location: index.php?page=orders&id=".$oid."");
+
+            foreach ($_SESSION['cart'] as $key => $value) 
+            {
+                $sql = "INSERT INTO `ordered`(`Oid`, `Pid`, `Quantity`) VALUES ($oid,$key, $value)";
+
+            	$data = mysqli_query($conn, $sql) or die("Internal Error.");
+            }
+
+            $_SESSION['cart'] = array();}
+            else {
+                    echo mysqli_error();
+            }
+        }
+    ?>
 
 </body>
 </html>
