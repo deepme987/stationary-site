@@ -56,10 +56,10 @@
 			$data = mysqli_query($conn, $sql) or die("User not found!");
 			$row = mysqli_fetch_assoc($data);
 
-			$msg = "Your order is ready!";
-			$msg = wordwrap($msg,70);
+				$msg = "Your order is ready!";
+				$msg = wordwrap($msg,70);
 
-			mail("".$row['Email']."","My subject",$msg);
+				mail("".$row['Email']."","My subject",$msg);
 
 		}
 

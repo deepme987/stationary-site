@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Products</title>
+    <!-- <base href="http://localhost/Git/stationary-site/User/index"> -->
     <style>
         /*@media(max-width:400px)
         {

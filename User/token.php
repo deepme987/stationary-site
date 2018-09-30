@@ -34,7 +34,7 @@
 		}
 		else
 		{
-			if(isset($_POST['submit']))
+			if(isset($_POST['submit'])&&isset($_POST['slot']))
 			{   
 						
 				$user='user';
