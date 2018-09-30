@@ -78,7 +78,7 @@
                         <img class='card-img-top' src='addons/".$row["Link"]."' alt='".$row["Pname"]."'>
                         <div class='card-body'>
                             <form action='' method='POST'>
-                            <p class='card-text'>".$row["Pname"]."<br>Cost:₹".$row["Cost"]."<br>Quantity<input type='number' name='quantity' min='1' value='1'></p>
+                            <p class='card-text'>".$row["Pname"]."<br>Cost:₹".$row["Cost"]."<br>Quantity<input type='number' name='quantity' value='1'></p>
                          </div> 
                         <button type='submit' name='submit' value='".$row['Pid']."' class='btn btn-primary'>Add to cart</button></form>
                      </div>";
