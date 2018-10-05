@@ -56,7 +56,7 @@
 	
 				$oid = $row['TokenId'];
 		
-				header("Location: index.php?page=token&id=".$row['TokenId']);
+				header("Location: token&id=".$row['TokenId']);
 				mysqli_close($conn);
 			}	  
 				

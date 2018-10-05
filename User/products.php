@@ -47,7 +47,7 @@
     
     <?php
     	if (isset($_POST["submit"])) {
-			header('Location: index.php?page=products');
+			header('Location: products');
             if ($_POST['quantity'] > 0) {
                 if (isset($_SESSION['cart']["".$_POST['submit'].""])) {
                     $_SESSION['cart']["".$_POST['submit'].""] += $_POST['quantity'] ;
@@ -79,7 +79,7 @@
                         <img class='card-img-top' src='addons/".$row["Link"]."' alt='".$row["Pname"]."'>
                         <div class='card-body'>
                             <form action='' method='POST'>
-                            <p class='card-text'>".$row["Pname"]."<br>Cost:₹".$row["Cost"]."<br>Quantity<input type='number' name='quantity' value='1'></p>
+                            <p class='card-text'>".$row["Pname"]."<br>Cost:₹".$row["Cost"]."<br>Quantity<input type='number' name='quantity' value='1' min='1'></p>
                          </div> 
                         <button type='submit' name='submit' value='".$row['Pid']."' class='btn btn-primary'>Add to cart</button></form>
                      </div>";

@@ -76,10 +76,10 @@
 	<?php
 
 		if (isset($_POST['pass'])) {
-			header("Location: index.php?page=pass");
+			header("Location: pass");
 		}
 		if (isset($_POST['update'])) {
-			header("Location: index.php?page=profile");
+			header("Location: profile");
 
 			$user = 'user';
 			$pass = 'sakec';

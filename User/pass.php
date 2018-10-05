@@ -69,7 +69,7 @@
 	<?php
 
 		if (isset($_POST['back'])) {
-			header('Location: index.php?page=profile');
+			header('Location: profile');
 		}
 
 		disp();
@@ -128,7 +128,7 @@
 					echo "Error: ".mysqli_error($conn);
 				}
 				mysqli_close($conn);
-				header("refresh:3; url=http://localhost/Git/stationary-site/User/index.php?page=profile");
+				header("refresh:3; url=http://localhost/Git/stationary-site/User/profile");
 			}
 
 			else {

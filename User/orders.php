@@ -40,7 +40,6 @@
 <body>
 	
     <?php
-
     	if (isset($_GET['id'])) {
     		
 	       	$user = 'user';
@@ -112,7 +111,7 @@
 
 			while ($row = mysqli_fetch_assoc($data))
 			{
-	            echo "<tr><td><a href='index.php?page=orders&id=".$row['Oid']."'>".$row['Oid']."</a></td><td>".$row['Cost']."</td><td>".$row['date']."</td><td>".$row['Status']."</td></tr></div>";
+	            echo "<tr><td><a href='orders/".$row['Oid']."'>".$row['Oid']."</a></td><td>".$row['Cost']."</td><td>".$row['date']."</td><td>".$row['Status']."</td></tr></div>";
 	        }
 	        echo "</table></div>";
 

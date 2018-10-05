@@ -67,7 +67,7 @@
 
 	<?php
 		if (isset($_POST['submit'])) {
-			header("Location: index.php?page=cart");
+			header("Location: cart");
 			unset($_SESSION['cart']["".$_POST['submit'].""]);
 		}
 	?>
@@ -130,7 +130,7 @@
             $row = mysqli_fetch_assoc($data);
 
             $oid = $row['Oid'];
-    		header("Location: index.php?page=orders&id=".$oid."");
+    		header("Location: orders/".$oid."");
 
             foreach ($_SESSION['cart'] as $key => $value) 
             {
