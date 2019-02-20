@@ -5,8 +5,11 @@
 	<title>Tokens</title>
 </head>
 <body>
+
+
 	
 	<?php
+		// include 'session.php';
 
 		if (isset($_GET['id'])) {
 			
@@ -56,7 +59,7 @@
 	
 				$oid = $row['TokenId'];
 		
-				header("Location: token&id=".$row['TokenId']);
+				header("Location: token-".$row['TokenId']);
 				mysqli_close($conn);
 			}	  
 				
