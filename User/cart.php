@@ -106,7 +106,6 @@
                         <button class='checkout-button' name='checkout'>Checkout</button>
                     </form>
                 </div>";
-
             mysqli_close($conn);
         ?>
         </div>
@@ -130,7 +129,7 @@
             $row = mysqli_fetch_assoc($data);
 
             $oid = $row['Oid'];
-    		header("Location: orders/".$oid."");
+    		header("Location: orders-".$oid."");
 
             foreach ($_SESSION['cart'] as $key => $value) 
             {

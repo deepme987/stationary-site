@@ -35,7 +35,6 @@
 			}
 
 	</style>
-	</style>
 </head>
 <body>
 	
