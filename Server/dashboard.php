@@ -33,7 +33,6 @@
 			}
 
 	</style>
-	</style>
 </head>
 <body>
 
@@ -85,6 +84,7 @@
 			<tr>
 				<th>Oid</th>
 				<th>Items</th>
+                <th>No Of Items</th>
 				<th>Cost</th>
 				<th>Status</th>
 				<th>Actions</th>
@@ -109,17 +109,30 @@
             $isql = "select * from ordered where Oid='".$row['Oid']."'";
 			$temp = mysqli_query($conn, $isql) or die("Product not found.");
 
-			echo "<table class='table'>";
+			echo "<ul style='list-style-type:none;'>";
             while ($items = mysqli_fetch_assoc($temp)) {
         		$psql = "select * from products where Pid=\"".$items['Pid']."\"";
 				$ptemp = mysqli_query($conn, $psql) or die("Product not found.");
 				$product = mysqli_fetch_assoc($ptemp);
 
-            	echo "<tr><td style='border:none'>".$product['Pname']."</td><td style='border:none'>".$items['Quantity']."</td></tr>";
+            	echo "<li>".$product['Pname']."</li>"/*<td style='border:none'>".$items['Quantity']."</td></tr>"*/;
             }
-            echo "</table>";
+            echo "</ul></td><td>";
+            
+            $isql = "select * from ordered where Oid='".$row['Oid']."'";
+			$temp = mysqli_query($conn, $isql) or die("Product not found.");
+            echo "<ul style='list-style-type:none;'>";
+            while ($items = mysqli_fetch_assoc($temp)) {
+        		/*$psql = "select * from products where Pid=\"".$items['Pid']."\"";
+				$ptemp = mysqli_query($conn, $psql) or die("Product not found.");
+				$product = mysqli_fetch_assoc($ptemp);*/
 
-            echo "</td><td>".$row['Cost']."</td><td>".$row['Status']."</td><td>";
+            	echo "<li>".$items['Quantity']."</li>"/*<td style='border:none'>".$items['Quantity']."</td></tr>"*/;
+            }
+            echo "</ul></td>";
+
+            echo "<td>".$row['Cost']."</td>
+                    <td>".$row['Status']."</td><td>";
 
             if ($row['Status']=='Processing') {
             	echo "<form action='' method='POST'><button name='ready' value='".$row['Oid']."'>Ready</button></form>";
@@ -130,10 +143,10 @@
             }
             echo "</td></tr>";
         }
-        echo "</table></div>";
-
         mysqli_close($conn);
-	?>
+    ?>
+        </table>
+    </div>
 
 </body>
 </html>

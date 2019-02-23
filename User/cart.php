@@ -74,7 +74,7 @@
 
 	<div class="flex">
 		<div class="cart">
-        	<table class="table" align="center">
+            <table class="table" align="center">
         		<tr>
 					<th>Product</th>
 					<th>Quantity</th>
@@ -106,8 +106,9 @@
                         <button class='checkout-button' name='checkout'>Checkout</button>
                     </form>
                 </div>";
-            mysqli_close($conn);
+            mysqli_close($conn);    
         ?>
+            </table>
         </div>
     </div>
 

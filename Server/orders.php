@@ -33,12 +33,10 @@
 			}
 
 	</style>
-	</style>
 </head>
 <body>
 	
     <?php
-
     	if (isset($_GET['id'])) {
     		
 	       	$user = 'user';
